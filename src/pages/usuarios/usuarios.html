@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Usuarios</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<ion-item>
+		<ion-grid>
+			<ion-row>
+				<ion-col col-3>
+					<p>Nombre</p>
+				</ion-col>
+
+				<ion-col col-2>
+					<p>Cargo</p>
+				</ion-col>
+
+				<ion-col col-2>
+					<p>CONACEM</p>
+				</ion-col>
+
+				<ion-col col-2>
+					<p>Actividades</p>
+				</ion-col>
+
+				<ion-col col-3>
+					<p>Estado</p>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-item>
+
+	<!-- Repetir elementos -->
+	<ion-item *ngFor="let p of info">
+		<ion-grid>
+			<ion-row>
+				<ion-col col-3>
+					<p>{{ p.nombre }}</p>
+				</ion-col>
+
+				<ion-col col-2>
+					<p>{{ p.ocupacion }}</p>
+				</ion-col>
+
+				<ion-col col-2>
+					<p>30</p>
+				</ion-col>
+
+				<ion-col col-2>
+					<p>5</p>
+				</ion-col>
+
+				<ion-col col-2>
+					<p>Insuficiente</p>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-item>
+
+</ion-content>

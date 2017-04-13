@@ -2,25 +2,24 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 // Importar paginas
-import { TabsPage } from '../pages/tabs/tabs';
 import { UsuariosPage } from '../pages/usuarios/usuarios';
 import { LoginPage } from '../pages/login/login';
-
 // Importar providers
 import { Auth } from '../providers/auth';
-
-
+	
 @Component({
 	templateUrl: 'app.html'
 })
+
 export class MyApp {
 
 	@ViewChild(Nav) nav: Nav;
-
+	// Root de la pagina
 	rootPage:any = LoginPage;
+	// Paginas del menu
 	paginas: any;
+	// Opciones del menu
 	opciones: any;
 
 	constructor(
@@ -29,30 +28,34 @@ export class MyApp {
 		splashScreen: SplashScreen,
 		private auth: Auth) {
 
+			// Configurar paginas del menu
 			this.paginas = [
-				{titulo: "Inicio", component: TabsPage, icon: "home"},
 				{titulo: "Medicos", component: UsuariosPage, icon: "person"},
-				{titulo: "Noticias", component: "-", icon: "paper"}];
-
+				{titulo: "Noticias", component: "-", icon: "paper"}
+			];
+			// Configurar opciones del menu
 			this.opciones = [
-				{titulo: "Sobre nosotros", component: "-", icon: "information"}]
-
+				{titulo: "Sobre nosotros", component: "-", icon: "information"}
+			];
+			// Cuando la plataforma ya cargó
 			platform.ready().then(() => {
-				// Okay, so the platform is ready and our plugins are available.
-				// Here you can do any higher level native things you might need.
 				statusBar.styleDefault();
 				splashScreen.hide();
 			});
-		}
-
+	}
 	 
 	openPage(page) {
+		/* openPage: Al apretar un item del menu. Setea la pagina root a la 
+		del componente clickeado */
 		this.nav.setRoot(page.component)
 	}
 
 	cerrarSesion() {
+		/* cerrarSesion: Cierra la sesión actual. Llama a la funcion auth.logOut */
 		this.auth.logOut().subscribe(succ => {
+			// Muestra una alerta
 			alert("Cerraste Sesión");
+			// Setea la pagina root al Login
 			this.nav.setRoot(LoginPage)
 		})
 	}

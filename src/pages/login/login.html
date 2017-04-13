@@ -1,16 +1,16 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Login</ion-title>
+  <ion-navbar color="primary">
+    <ion-title text-center>Login</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
 	<!-- Form del login -->
-	<ion-card>
-		<div class="login-box">
+	<div class="tarjeta">
+	<ion-card padding>
+		<div class="login-box" >
 		<form (ngSubmit)="login()" #registerForm="ngForm">
 			<ion-row>
 				<ion-col>
@@ -40,4 +40,5 @@
 		</form>
 		</div>
 	</ion-card>
+	</div>
 </ion-content>

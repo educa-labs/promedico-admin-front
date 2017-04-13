@@ -21,7 +21,7 @@ export class Data {
 
 		loader.present();
 		return new Promise(resolve =>  {
-			this.http.get('http://educalabs.cl:5000/getAllUsers/' + token)
+			this.http.get('http://api.promedico.cl/getAllUsers/' + token)
 				.map(res => res.json())
 				.subscribe(data => {
 					this.info = data['users']

@@ -47,7 +47,7 @@ export class Auth {
 				let headers = new Headers();
 				headers.append('Content-Type', undefined);
 
-				this.http.post('http://educalabs.cl:5000/login', JSON.stringify(credenciales), {headers: headers})
+				this.http.post('http://api.promedico.cl/login', JSON.stringify(credenciales), {headers: headers})
 					.map(res => res.json())
 					.subscribe(data => {
 						let loader = this.loading.create({

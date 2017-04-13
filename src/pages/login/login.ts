@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, Loading, MenuController } from 'ionic-angular';
 
 // Importar paginas
-import { TabsPage } from '../tabs/tabs';
+import { UsuariosPage } from '../usuarios/usuarios';
 
 // Importar providers
 import { Auth } from '../../providers/auth';
@@ -34,7 +34,7 @@ export class LoginPage {
 			if (allowed) {
 				/* Cambiar la pagina Root a Inicio,
 				habilitar menu y sacar cargando */
-				this.nav.setRoot(TabsPage);
+				this.nav.setRoot(UsuariosPage);
 				this.menuCtrl.enable(true);
 			}
 

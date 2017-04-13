@@ -26,7 +26,6 @@ export class UsuariosPage {
 		/* Recibir token para después enviarlo y recibir
 		la info de todos los usuarios */
 		this.token = this.auth.getUserToken();
-		
 		this.getUsers(this.token);
 
 	}
@@ -37,4 +36,9 @@ export class UsuariosPage {
 				this.info = data;
 			})
 	}
+
+	apretarUsuario() {
+		return
+	}
+
 }

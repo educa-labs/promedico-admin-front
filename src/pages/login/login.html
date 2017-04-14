@@ -1,10 +1,11 @@
+<!-- Login: pagina de login donde el usuario ingresa las credenciales y 
+si es administrador puede entrar a la pagina de detalle -->
 <ion-header>
-
-  <ion-navbar color="primary">
-    <ion-title text-center>Login</ion-title>
-  </ion-navbar>
+ 	<ion-navbar color="primary">
+ 		<!-- Título en el centro -->
+		<ion-title text-center>Login</ion-title>
+  	</ion-navbar>
 </ion-header>
-
 
 <ion-content padding>
 	<!-- Form del login -->
@@ -20,7 +21,6 @@
 							<ion-label floating>Mail</ion-label>
 							<ion-input type="text" name="mail" [(ngModel)]="credenciales.mail" required></ion-input>
 						</ion-item>
-
 						<!-- Input de Password -->
 						<ion-item>
 							<ion-label floating>Contraseña</ion-label>
@@ -29,7 +29,6 @@
 					</ion-list>
 				</ion-col>
 			</ion-row>
-
 			<!-- Espacio para boton de Iniciar sesion y registrarse -->
 			<ion-row>
 				<ion-col class="signup">

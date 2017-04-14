@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 // Importar paginas
 import { UsuariosPage } from '../pages/usuarios/usuarios';
 import { LoginPage } from '../pages/login/login';
+import { AboutPage } from '../pages/about/about';
+import { NoticiasPage } from '../pages/noticias/noticias';
 // Importar providers
 import { Auth } from '../providers/auth';
 	
@@ -31,11 +33,11 @@ export class MyApp {
 			// Configurar paginas del menu
 			this.paginas = [
 				{titulo: "Medicos", component: UsuariosPage, icon: "person"},
-				{titulo: "Noticias", component: "-", icon: "paper"}
+				{titulo: "Noticias", component: NoticiasPage, icon: "paper"}
 			];
 			// Configurar opciones del menu
 			this.opciones = [
-				{titulo: "Sobre nosotros", component: "-", icon: "information"}
+				{titulo: "Sobre nosotros", component: AboutPage, icon: "information"}
 			];
 			// Cuando la plataforma ya cargó
 			platform.ready().then(() => {

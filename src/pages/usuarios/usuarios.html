@@ -1,62 +1,68 @@
+<!-- Usuarios: Pagina principal. Se muestra una lista con los médicos
+del departamento del que el usuario es administrador -->
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>Usuarios</ion-title>
-  </ion-navbar>
+  	<ion-navbar color="primary">
+    	<ion-title>Usuarios</ion-title>
+  	</ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
+	<!-- Usar ion-item para que se vea la linea separatoria -->
 	<ion-item>
+		<!-- Crear una "tabla" grid -->	
 		<ion-grid>
 			<ion-row>
+				<!-- Nombre del médico -->
 				<ion-col col-3>
-					<p>Nombre</p>
+					<p class="primer_elemento">Nombre</p>
 				</ion-col>
-
+				<!-- Cargo del médico -->
 				<ion-col col-2>
-					<p>Cargo</p>
+					<p class="fila">Cargo</p>
 				</ion-col>
-
+				<!-- Puntos CONACEM -->
 				<ion-col col-2>
-					<p>CONACEM</p>
+					<p class="fila">CONACEM</p>
 				</ion-col>
-
+				<!-- Cantidad de actividades del médico -->
 				<ion-col col-2>
-					<p>Actividades</p>
+					<p class="fila">Actividades</p>
 				</ion-col>
-
+				<!-- Estado del médico -->
 				<ion-col col-3>
-					<p>Estado</p>
+					<p class="ultimo_elemento">Estado</p>
 				</ion-col>
 			</ion-row>
 		</ion-grid>
 	</ion-item>
-
-	<!-- Repetir elementos -->
-	<ion-item *ngFor="let p of info">
-		<ion-grid>
-			<ion-row>
-				<ion-col col-3>
-					<p>{{ p.nombre }}</p>
-				</ion-col>
-
-				<ion-col col-2>
-					<p>{{ p.ocupacion }}</p>
-				</ion-col>
-
-				<ion-col col-2>
-					<p>30</p>
-				</ion-col>
-
-				<ion-col col-2>
-					<p>5</p>
-				</ion-col>
-
-				<ion-col col-2>
-					<p>Insuficiente</p>
-				</ion-col>
-			</ion-row>
-		</ion-grid>
-	</ion-item>
-
+	<!-- Repetir médicos -->
+	<ion-list no-lines>
+		<!-- Elemento: repetir los médicos -->
+		<ion-item *ngFor="let p of info" (click)="apretarUsuario($event, p)">
+			<ion-grid>
+				<ion-row>
+					<!-- Nombre del médico -->
+					<ion-col col-3>
+						<p class="primer_elemento">{{ p.nombre }}</p>
+					</ion-col>
+					<!-- Ocupación del médico -->
+					<ion-col col-2>
+						<p class="fila">{{ p.ocupacion }}</p>
+					</ion-col>
+					<!-- Puntos CONACEM del médico -->
+					<ion-col col-2>
+						<p class="fila">30</p>
+					</ion-col>
+					<!-- Cantidad de actividades médico -->
+					<ion-col col-2>
+						<p class="fila">5</p>
+					</ion-col>
+					<!-- Estado del médico -->
+					<ion-col col-3>
+						<p class="ultimo_elemento">Insuficiente</p>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-item>
+	</ion-list>
 </ion-content>

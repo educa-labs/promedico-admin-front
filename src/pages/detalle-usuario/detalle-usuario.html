@@ -1,0 +1,63 @@
+<!-- Detalle-Usuario: Pagina que muestra el detalle de cada usuario. Se
+muestra una lista de Tags con el puntaje del usuario y el puntaje meta de ese
+tag -->
+<ion-header>
+	<ion-navbar color="secondary">
+		<ion-title>{{ usuario_seleccionado.nombre }}</ion-title>
+		<!-- Boton al final del lado derecho-->
+		<ion-buttons end>
+			<!-- Boton de descarga para descargar pdf -->
+			<button ion-button icon-only>
+				<ion-icon name="download" ></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<!-- Grid -->
+	<ion-grid>
+		<!-- Fila -->
+		<ion-row>
+			<!-- Repetir columnas con los tags -->
+			<ion-col col-6 *ngFor="let item of usuario_seleccionado.tags">
+				<!-- Tarjeta de un tag con el color de cada tag -->
+				<ion-card [color]="item.color">
+					<ion-card-content>
+						<!-- Titulo del tag -->
+						<ion-card-title>
+							{{ item.titulo }}
+						</ion-card-title>
+						<!-- Puntaje del usuario / Meta -->
+						<div class="puntaje">
+							{{ item.puntaje_usuario }} / {{ item.meta }}   
+							<!-- Icono de información al apretar se muestra un toast con la info -->
+							<ion-icon name="information-circle" (click)="mostrarToast()"></ion-icon>
+						</div>
+					</ion-card-content>
+				</ion-card>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+	<!-- Lista de tarjetas con las actividades del usuarui -->
+	<ion-card *ngFor="let item of usuario_seleccionado.actividades">
+		<ion-card-content>
+			<!-- El tipo y la fecha de la actividad -->
+			<p><font color="#757575">
+				{{ item.tipo[0] }} · {{ item.fecha }}
+			</font></p>
+			<!-- Titulo de la actividad -->
+			<ion-card-title>
+				{{ item.titulo }}
+			</ion-card-title>
+			<!-- Repetir botones de actividades -->
+			<button *ngFor="let p of item.tags" ion-button  round strong="false" small padding [color]="p.color">
+				{{p.title}}
+			</button>
+			<!-- Reflexion del usuario -->
+			<p>
+				{{ item.reflexion }}
+			</p>	
+		</ion-card-content>
+	</ion-card>
+</ion-content>

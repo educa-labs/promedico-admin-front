@@ -74,7 +74,7 @@ export class Auth {
 						// Desaparece loader de la pantalla
 						loader.dismiss();
 						// El observer pasa solo si el usuario ingresado es administrador
-						observer.next(true);
+						observer.next(data['admin']);
 						// Completar observer
 						observer.complete();
 					});
